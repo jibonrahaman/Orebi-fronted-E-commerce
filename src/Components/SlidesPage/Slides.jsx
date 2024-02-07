@@ -1,13 +1,22 @@
-import React from 'react'
 import Flex from '../../Flex'
-
 import NewBtn from '../../NewBtn'
 import ProductText from '../../ProductText'
 import PricingText from '../../PricingText'
 import { AiFillHeart } from 'react-icons/ai'
 import { TbGitCompare } from 'react-icons/tb'
 import { BsCartFill } from 'react-icons/bs'
-function Slides({ product, pricing, src, alt }) {
+import { useDispatch } from 'react-redux'
+import { addtoCart } from '../Redux/CartSlices'
+function Slides({title,price,src,alt}) {
+  const dispatch=useDispatch()
+  const handleAddCart=()=>{
+    dispatch(addtoCart({
+      title:title,
+      price:price,
+      quantity:1,
+      image:src,
+    }))
+  }
   return (
     <div className=' mx-3   '>
       <div className='relative overflow-hidden  group' >
@@ -22,15 +31,15 @@ function Slides({ product, pricing, src, alt }) {
             <PricingText text="Compare" className=" hover:font-bold duration-500" />
             <TbGitCompare size={20} />
           </Flex>
-          <Flex className="items-center  justify-end cursor-pointer gap-x-4">
+          <div onClick={handleAddCart} className=" flex items-center  justify-end cursor-pointer gap-x-4">
             <PricingText text="Add to Cart" className=" hover:font-bold duration-500" />
             <BsCartFill size={20} />
-          </Flex>
+          </div>
         </div>
       </div>
       <Flex className="justify-between mt-5">
-        <ProductText text={`${product}`} />
-        <PricingText text={`${pricing}`} />
+        <ProductText text={`${title}`} />
+        <PricingText text={`${price}`} />
       </Flex>
     </div>
   )

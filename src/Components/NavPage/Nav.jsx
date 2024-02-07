@@ -152,17 +152,17 @@ function Nav() {
           {
             cart.map((item,index)=>(
               <ul key={index} className=' flex pl-2 gap-y-2  border-black border-2 bg-white text-black py-5 text-center items-center justify-center w-full'>
-            <button  className='w-[10%] text-red-500 text-2xl'><FaDeleteLeft /></button>
-           <Image className="w-[20%] border-black border-2 px-2 " src={Logo}/>
-            <li className=' w-[30%]'>{item.title}</li>
-            <li className='w-[10%] flex flex-col border '>
-              <button className='border-b'>+</button>
-              {item.price}
-              <button className='border-t'>-</button>
-              </li>
-            <li  className='w-[15%]'>{item.quantity}</li>
-            <li className='w-[10%]'>${item.quantity * item.price}</li>
-              </ul>
+              <button  className='w-[10%] text-red-500 text-2xl'><FaDeleteLeft /></button>
+             <Image className="w-[20%] border-black border-2 px-2 " src={Logo}/>
+              <li className=' w-[30%]'>{item.title}</li>
+              <li className='w-[10%] flex flex-col border '>
+                <button className='border-b'>+</button>
+                {item.price}
+                <button className='border-t'>-</button>
+                </li>
+              <li  className='w-[15%]'>{item.quantity}</li>
+              <li className='w-[10%]'>$ {item.quantity * item.price} </li>
+                </ul>
             ))
           }
           </div>
