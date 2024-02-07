@@ -137,27 +137,31 @@ function Nav() {
 
           {
             openCart && 
-            <div ref={dropref} className=" w-2/5 bg-black text-white h-[650px] absolute top-0 right-0 border-solid border-white border-3">
+            <div ref={dropref} className=" overflow-hidden overflow-y-scroll w-2/5 bg-black text-white h-[650px]  absolute top-0 right-0 border-solid border-white border-3">
        <MdCancelPresentation onClick={()=>setopenCart(false)} size={40} className=' absolute top-0 right-0 text-white '/>
 
-       <ul className=' flex justify-between  mt-14 border-2 px-3 py-2 text-lg bg-[#5b5353] '>
-        <li>Remove</li>
-        <li>Image</li>
-        <li>Product Name</li>
-        <li>Price</li>
-        <li>Quantity</li>
-        <li>Sub Total</li>
-       </ul>
+       <ul className=' flex w-full  mt-14 border-2 items-center pl-2  py-2 text-lg bg-[#5b5353] '>
+        <li className='w-[13%] '>Remove</li>
+        <li className=' w-[20%]'>Image</li>
+        <li className=' w-[30%]'>Product Name</li>
+        <li className='w-[10%]'>Price</li>
+        <li className='w-[15%]'>Quantity</li>
+        <li className='w-[10%]'>Sub Total</li>
+               </ul>
           
           {
             cart.map((item,index)=>(
-              <ul key={index} className=' flex justify-between  px-3 border border-[#ededed] bg-white text-black py-5 items-center text-center w-[100%]'>
-            <li className='w-[5%]'><FaDeleteLeft /></li>
-           <Image className="w-[20%] border-black border-2 px-2 py-2" src={Logo}/>
-            <li className='w-[30%]'>{item.title}</li>
-            <li className='w-[10%]'>{item.price}</li>
-            <li className='w-[10%]'>{item.quantity}</li>
-            <li className='w-[10%]'>{item.price* item.quantity}</li>
+              <ul key={index} className=' flex pl-2 gap-y-2  border-black border-2 bg-white text-black py-5 text-center items-center justify-center w-full'>
+            <button  className='w-[10%] text-red-500 text-2xl'><FaDeleteLeft /></button>
+           <Image className="w-[20%] border-black border-2 px-2 " src={Logo}/>
+            <li className=' w-[30%]'>{item.title}</li>
+            <li className='w-[10%] flex flex-col border '>
+              <button className='border-b'>+</button>
+              {item.price}
+              <button className='border-t'>-</button>
+              </li>
+            <li  className='w-[15%]'>{item.quantity}</li>
+            <li className='w-[10%]'>{item.price * item.quantity}</li>
               </ul>
             ))
           }
