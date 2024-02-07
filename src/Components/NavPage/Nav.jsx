@@ -161,7 +161,7 @@ function Nav() {
               <button className='border-t'>-</button>
               </li>
             <li  className='w-[15%]'>{item.quantity}</li>
-            <li className='w-[10%]'>{item.price * item.quantity}</li>
+            <li className='w-[10%]'>${item.quantity * item.price}</li>
               </ul>
             ))
           }

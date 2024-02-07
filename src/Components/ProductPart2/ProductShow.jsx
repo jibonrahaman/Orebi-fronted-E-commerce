@@ -8,10 +8,10 @@ function ProductShow() {
  
    <Container>
    <Flex>
-          <Product2 productPrice="$44.00" productName="Product1"/>
-          <Product2 productPrice="$44.00" productName="Product2"/>
-          <Product2 productPrice="$44.00" productName="Product3"/>
-          <Product2 productPrice="$44.00" productName="Product4"/>
+          <Product2 productPrice="44.00" productName="Product1"/>
+          <Product2 productPrice="44.00" productName="Product2"/>
+          <Product2 productPrice="44.00" productName="Product3"/>
+          <Product2 productPrice="44.00" productName="Product4"/>
       </Flex>
    </Container>
  
