@@ -135,13 +135,22 @@ function Nav() {
 
           {
             openCart && 
-            <div ref={dropref} className=" w-2/6 bg-red-500  h-[600px] absolute top-0 right-0">
-       <MdCancelPresentation onClick={()=>setopenCart(false)} size={40} className=' absolute top-0 right-0 text-white'/>
+            <div ref={dropref} className=" w-2/5 bg-black text-white h-[650px] absolute top-0 right-0 border-solid border-white border-3">
+       <MdCancelPresentation onClick={()=>setopenCart(false)} size={40} className=' absolute top-0 right-0 text-white '/>
+
+       <ul className=' flex justify-between  mt-14 border-2 px-3'>
+        <li>Remove</li>
+        <li>Image</li>
+        <li>Product Name</li>
+        <li>Quantity</li>
+        <li>Price</li>
+        <li>Sub Total</li>
+       </ul>
           {
             <ul>
               {
                 cart.map((item,index)=>(
-                  <li key={index}>{item.title}-{item.quantity}</li>
+                  <li key={index}>{item.title}-{item.quantity}-{item.price}</li>
                 ))
               }
             </ul>

@@ -1,4 +1,3 @@
-import React from 'react'
 import Clock from '../../assets/Clock.png'
 import Container from '../../Container'
 import Flex from '../../Flex'

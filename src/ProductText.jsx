@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 function ProductText({className,text}) {
   return (

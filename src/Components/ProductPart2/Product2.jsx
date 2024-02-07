@@ -1,11 +1,7 @@
-import React from 'react'
 import Container from '../../Container'
 import Flex from '../../Flex'
 import NewBtn from '../../NewBtn'
 import Product5 from '../../assets/Product5.png'
-import Product6 from '../../assets/Product6.png'
-import Product7 from '../../assets/Product7.png'
-import Product8 from '../../assets/Product8.png'
 import {AiFillHeart} from 'react-icons/ai'
 import {TbGitCompare} from 'react-icons/tb'
 import {BsCartFill} from 'react-icons/bs'
@@ -44,7 +40,7 @@ function Product2({productName,productPrice}) {
          <div onClick={handleAddCart}>
          <Flex className="items-center  justify-end cursor-pointer gap-x-4">
             <PricingText text="Add to Cart" className=" hover:font-bold duration-500" />
-            <BsCartFill size={20} />
+            <BsCartFill size={20}/>
           </Flex>
          </div>
         </div>
