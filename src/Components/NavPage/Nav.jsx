@@ -9,7 +9,9 @@ import Search from '../../Search'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { pageName } from '../Redux/BreakCum'
-import {MdCancelPresentation} from 'react-icons/md'
+import {MdCancelPresentation} from 'react-icons/md';
+import { FaDeleteLeft } from "react-icons/fa6";
+import Image from "../../Images"
 function Nav() {
   const [scroll, setScroll] = useState(false)
   const [openCart,setopenCart]=useState(false)
@@ -138,23 +140,27 @@ function Nav() {
             <div ref={dropref} className=" w-2/5 bg-black text-white h-[650px] absolute top-0 right-0 border-solid border-white border-3">
        <MdCancelPresentation onClick={()=>setopenCart(false)} size={40} className=' absolute top-0 right-0 text-white '/>
 
-       <ul className=' flex justify-between  mt-14 border-2 px-3'>
+       <ul className=' flex justify-between  mt-14 border-2 px-3 py-2 text-lg w-full bg-[#5b5353] '>
         <li>Remove</li>
         <li>Image</li>
         <li>Product Name</li>
-        <li>Quantity</li>
         <li>Price</li>
+        <li>Quantity</li>
         <li>Sub Total</li>
        </ul>
+          
           {
-            <ul>
-              {
-                cart.map((item,index)=>(
-                  <li key={index}>{item.title}-{item.quantity}-{item.price}</li>
-                ))
-              }
-            </ul>
-            }
+            cart.map((item,index)=>(
+              <ul key={index} className=' flex justify-between  px-3 border border-[#ededed] bg-white text-black py-5 items-center w-[100%]'>
+            <li className='w-[5%]'><FaDeleteLeft /></li>
+           <Image className="w-[20%] border-black border-2 px-2 py-2" src={Logo}/>
+            <li className='w-[40%]'>sdffffffffsfdddddddd</li>
+            <li className='w-[10%]'>{item.price}</li>
+            <li className='w-[10%]'>{item.quantity}</li>
+            <li className='w-[10%]'>{item.price* item.quantity}</li>
+              </ul>
+            ))
+          }
           </div>
           }
         </div>
