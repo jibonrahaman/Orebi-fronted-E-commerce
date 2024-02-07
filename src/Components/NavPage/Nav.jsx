@@ -140,7 +140,7 @@ function Nav() {
             <div ref={dropref} className=" w-2/5 bg-black text-white h-[650px] absolute top-0 right-0 border-solid border-white border-3">
        <MdCancelPresentation onClick={()=>setopenCart(false)} size={40} className=' absolute top-0 right-0 text-white '/>
 
-       <ul className=' flex justify-between  mt-14 border-2 px-3 py-2 text-lg w-full bg-[#5b5353] '>
+       <ul className=' flex justify-between  mt-14 border-2 px-3 py-2 text-lg bg-[#5b5353] '>
         <li>Remove</li>
         <li>Image</li>
         <li>Product Name</li>
@@ -151,10 +151,10 @@ function Nav() {
           
           {
             cart.map((item,index)=>(
-              <ul key={index} className=' flex justify-between  px-3 border border-[#ededed] bg-white text-black py-5 items-center w-[100%]'>
+              <ul key={index} className=' flex justify-between  px-3 border border-[#ededed] bg-white text-black py-5 items-center text-center w-[100%]'>
             <li className='w-[5%]'><FaDeleteLeft /></li>
            <Image className="w-[20%] border-black border-2 px-2 py-2" src={Logo}/>
-            <li className='w-[40%]'>sdffffffffsfdddddddd</li>
+            <li className='w-[30%]'>{item.title}</li>
             <li className='w-[10%]'>{item.price}</li>
             <li className='w-[10%]'>{item.quantity}</li>
             <li className='w-[10%]'>{item.price* item.quantity}</li>
