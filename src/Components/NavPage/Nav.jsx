@@ -154,20 +154,28 @@ const handleRemove =(item)=>{
                </ul>
           
           {
-            cart.map((item,index)=>(
-              <ul key={index} className=' flex  px-2 gap-y-2  border-black border-2 bg-white text-black py-5 text-center items-center justify-between'>
-              <button onClick={()=>handleRemove(item)}  className=' text-red-500 text-2xl'><FaDeleteLeft /></button>
-              <li className=''>{item.title}</li>
-              <li  className=''> {item.price}</li>
-              <li className='w-[10%] flex flex-col border '>
-                <button onClick={()=>handleIncrement(item)} className='border-b'>+</button>
-                {item.quantity}
-                <button onClick={()=>handleDecrement(item)} className='border-t'>-</button>
-                </li>
-              <li className=''>$ {item.quantity * item.price} </li>
-                </ul>
-            ))
+          cart.length > 0 ? 
+          (  cart.map((item,index)=>(
+            <ul key={index} className=' flex  px-2 gap-y-2  border-black border-2 bg-white text-black py-5 text-center items-center justify-between'>
+                <button onClick={()=>handleRemove(item)}  className=' text-red-500 text-2xl'><FaDeleteLeft /></button>
+                <li className=''>{item.title}</li>
+                <li  className=''> {item.price}</li>
+                <li className='w-[10%] flex flex-col border '>
+                  <button onClick={()=>handleIncrement(item)} className='border-b'>+</button>
+                  {item.quantity}
+                  <button onClick={()=>handleDecrement(item)} className='border-t'>-</button>
+                  </li>
+                <li className=''>$ {item.quantity * item.price} </li>
+                  </ul>
+          )) 
+          )
+           :
+          (  <div>
+                  <h1 className=' text-center mt-2'>Cart is Empty </h1>
+                </div>
+                          )
           }
+          
           </div>
           }
         </div>
