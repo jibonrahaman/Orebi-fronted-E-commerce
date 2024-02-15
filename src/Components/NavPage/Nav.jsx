@@ -1,4 +1,4 @@
-import  { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Container from '../../Container'
 import Flex from '../../Flex'
 import Li from '../../Li'
@@ -9,12 +9,12 @@ import Search from '../../Search'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { pageName } from '../Redux/BreakCum'
-import {MdCancelPresentation} from 'react-icons/md';
+import { MdCancelPresentation } from 'react-icons/md';
 import { FaDeleteLeft } from "react-icons/fa6";
-import { increment,decrement,removeItem} from '../Redux/CartSlices'
+import { increment, decrement, removeItem } from '../Redux/CartSlices'
 function Nav() {
   const [scroll, setScroll] = useState(false)
-  const [openCart,setopenCart]=useState(false)
+  const [openCart, setopenCart] = useState(false)
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -29,37 +29,45 @@ function Nav() {
     };
   }, []);
 
-  const cart =useSelector(state=>state.cart.cartItem)
+  const cart = useSelector(state => state.cart.cartItem)
 
   const dispatch = useDispatch()
   const handlename = (name) => {
     dispatch(pageName(name))
   }
-  
-  useEffect(()=>{
-   const falseHover=(e)=>{
-    if(!dropref.current.contains(e.target)){
-      setopenCart(false)
+
+  useEffect(() => {
+    const falseHover = (e) => {
+      if (!dropref.current.contains(e.target)) {
+        setopenCart(false)
+
+      }
 
     }
+    document.addEventListener("mousedown", falseHover)
+    return () => {
+      document.removeEventListener("mousedown", falseHover)
+    }
+  }, [])
+  const dropref = useRef(null);
+  const handleIncrement = (item) => {
+    dispatch(increment(item))
+  }
 
-   }
-   document.addEventListener("mousedown",falseHover) 
-   return()=>{
-    document.removeEventListener("mousedown",falseHover)
-   } 
-  },[])
-  const dropref=useRef(null);
-const handleIncrement = (item)=>{   
-  dispatch(increment(item))
-}
-
-const handleDecrement = (item)=>{
- dispatch(decrement(item))
-}
-const handleRemove =(item)=>{
-  dispatch(removeItem(item))
-}
+  const handleDecrement = (item) => {
+    dispatch(decrement(item))
+  }
+  const handleRemove = (item) => {
+    dispatch(removeItem(item))
+  }
+const [total,setTotal]=useState(false)
+useEffect(()=>{
+ let total = 0
+  cart.map((item)=>{
+   total += item.price * item.quantity
+  })
+  setTotal(total);
+}, [cart])
   return (
     <>
       <section>
@@ -134,49 +142,49 @@ const handleRemove =(item)=>{
                         </svg>
                       </Flex>
                     </div></Link>
-                  <BsCartFill size={20}   onClick={()=> setopenCart(true)} />{cart.length}
+                  <BsCartFill size={20} onClick={() => setopenCart(true)} />{cart.length}
                 </Flex>
               </div>
             </Flex>
           </Container>
 
           {
-            openCart && 
+            openCart &&
             <div ref={dropref} className=" overflow-hidden overflow-y-scroll w-2/5 bg-black text-white h-[650px]  absolute top-0 right-0 border-solid border-white border-3">
-       <MdCancelPresentation onClick={()=>setopenCart(false)} size={40} className=' absolute top-0 right-0 text-white '/>
-       <ul className=' flex justify-between  mt-14 border-2 items-center  px-2  py-2 text-lg bg-[#5b5353] '>
-        <li className=' '>Remove</li>
-        <li className=''>Product Name</li>
-        <li className=''>Price</li>
-        <li className=''>Quantity</li>
-        <li className=''>Sub Total</li>
-               </ul>          
-          {
-          cart.length > 0 ? 
-          (  cart.map((item,index)=>(
-            <ul key={index} className=' flex   px-2 gap-y-2  border-black border-2 bg-white text-black py-3 text-center items-center justify-between'>
-                <button onClick={()=>handleRemove(item)}  className=' text-red-500 text-2xl'><FaDeleteLeft /></button>
-                <li className=''>{item.title}</li>
-                <li  className=''> {item.price}</li>
-                <li className='w-[10%] flex flex-col border '>
-                  <button onClick={()=>handleIncrement(item)} className='border-b'>+</button>
-                  {item.quantity}
-                  <button onClick={()=>handleDecrement(item)} className='border-t'>-</button>
-                  </li>
-                <li className=''>$ {item.quantity * item.price} </li>
-                  </ul>
-                  
-          )) 
-          )
-           :
-          (  <div>
-                  <h1 className=' text-center mt-2'>Cart is Empty </h1>
-                </div>
-          )
-          }  
-          <div className=' border border-red-400 border-t-4 mt-2'></div>      
-          <h2 className=' text-right  text-xl py-5 mr-10   '>Total :ddeedf </h2>
-         </div>
+              <MdCancelPresentation onClick={() => setopenCart(false)} size={40} className=' absolute top-0 right-0 text-white ' />
+              <ul className=' flex justify-between  mt-14 border-2 items-center  px-2  py-2 text-lg bg-[#5b5353] '>
+                <li className=' '>Remove</li>
+                <li className=''>Product Name</li>
+                <li className=''>Price</li>
+                <li className=''>Quantity</li>
+                <li className=''>Sub Total</li>
+              </ul>
+              {
+                cart.length > 0 ?
+                  (cart.map((item, index) => (
+                    <ul key={index} className=' flex   px-2 gap-y-2  border-black border-2 bg-white text-black py-3 text-center items-center justify-between'>
+                      <button onClick={() => handleRemove(item)} className=' text-red-500 text-2xl'><FaDeleteLeft /></button>
+                      <li className=''>{item.title}</li>
+                      <li className=''> {item.price}</li>
+                      <li className='w-[10%] flex flex-col border '>
+                        <button onClick={() => handleIncrement(item)} className='border-b'>+</button>
+                        {item.quantity}
+                        <button onClick={() => handleDecrement(item)} className='border-t'>-</button>
+                      </li>
+                      <li className=''>$ {item.quantity * item.price} </li>
+                    </ul>
+
+                  ))
+                  )
+                  :
+                  (<div>
+                    <h1 className=' text-center mt-2'>Cart is Empty </h1>
+                  </div>
+                  )
+              }
+              <div className=' border border-red-400 border-t-4 mt-2'></div>
+              <h2 className=' text-right  text-xl py-5 mr-10   '>Total : {total} </h2>
+            </div>
           }
         </div>
 
