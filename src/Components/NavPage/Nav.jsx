@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { pageName } from '../Redux/BreakCum'
 import {MdCancelPresentation} from 'react-icons/md';
 import { FaDeleteLeft } from "react-icons/fa6";
-import Image from "../../Images"
+import { increment } from '../Redux/CartSlices'
 function Nav() {
   const [scroll, setScroll] = useState(false)
   const [openCart,setopenCart]=useState(false)
@@ -51,7 +51,8 @@ function Nav() {
   },[])
   const dropref=useRef(null);
 const handleIncrement = (item)=>{
-   console.log(item);
+   
+  dispatch(increment(item))
 }
   return (
     <>
