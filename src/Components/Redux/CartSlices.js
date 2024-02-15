@@ -26,16 +26,25 @@ export const CartSlices = createSlice({
       }
     },
     increment : (state,action)=>{
-       state.cartItem.map((item,index)=>{
+       state.cartItem.map((item)=>{
         if(item.title === action.payload.title){
           item.quantity = item.quantity + 1
         }
        })
+    },
+    decrement : (state,action)=>{
+     state.cartItem.map((item)=>{
+     if(item.title == action.payload.title){
+     if(item.quantity > 1){
+      item.quantity = item.quantity -1
+     }
+     }
+     })
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { addtoCart,increment } = CartSlices.actions
+export const { addtoCart,increment,decrement } = CartSlices.actions
 
 export default CartSlices.reducer

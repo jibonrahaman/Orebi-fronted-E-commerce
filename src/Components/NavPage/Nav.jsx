@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { pageName } from '../Redux/BreakCum'
 import {MdCancelPresentation} from 'react-icons/md';
 import { FaDeleteLeft } from "react-icons/fa6";
-import { increment } from '../Redux/CartSlices'
+import { increment,decrement} from '../Redux/CartSlices'
 function Nav() {
   const [scroll, setScroll] = useState(false)
   const [openCart,setopenCart]=useState(false)
@@ -55,7 +55,7 @@ const handleIncrement = (item)=>{
 }
 
 const handleDecrement = (item)=>{
- console.log(item);
+ dispatch(decrement(item))
 }
   return (
     <>
