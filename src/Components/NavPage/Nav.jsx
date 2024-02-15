@@ -50,9 +50,12 @@ function Nav() {
    } 
   },[])
   const dropref=useRef(null);
-const handleIncrement = (item)=>{
-   
+const handleIncrement = (item)=>{   
   dispatch(increment(item))
+}
+
+const handleDecrement = (item)=>{
+ console.log(item);
 }
   return (
     <>
@@ -139,7 +142,7 @@ const handleIncrement = (item)=>{
             <div ref={dropref} className=" overflow-hidden overflow-y-scroll w-2/5 bg-black text-white h-[650px]  absolute top-0 right-0 border-solid border-white border-3">
        <MdCancelPresentation onClick={()=>setopenCart(false)} size={40} className=' absolute top-0 right-0 text-white '/>
 
-       <ul className=' flex justify-between  mt-14 border-2 items-center pl-2  py-2 text-lg bg-[#5b5353] '>
+       <ul className=' flex justify-between  mt-14 border-2 items-center  px-2  py-2 text-lg bg-[#5b5353] '>
         <li className=' '>Remove</li>
         <li className=''>Product Name</li>
         <li className=''>Price</li>
@@ -149,14 +152,14 @@ const handleIncrement = (item)=>{
           
           {
             cart.map((item,index)=>(
-              <ul key={index} className=' flex pl-2 gap-y-2  border-black border-2 bg-white text-black py-5 text-center items-center justify-between'>
+              <ul key={index} className=' flex  px-2 gap-y-2  border-black border-2 bg-white text-black py-5 text-center items-center justify-between'>
               <button  className=' text-red-500 text-2xl'><FaDeleteLeft /></button>
               <li className=''>{item.title}</li>
               <li  className=''> {item.price}</li>
               <li className='w-[10%] flex flex-col border '>
                 <button onClick={()=>handleIncrement(item)} className='border-b'>+</button>
                 {item.quantity}
-                <button  className='border-t'>-</button>
+                <button onClick={()=>handleDecrement(item)} className='border-t'>-</button>
                 </li>
               <li className=''>$ {item.quantity * item.price} </li>
                 </ul>
