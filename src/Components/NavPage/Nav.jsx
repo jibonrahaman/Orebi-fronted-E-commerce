@@ -50,7 +50,9 @@ function Nav() {
    } 
   },[])
   const dropref=useRef(null);
-
+const handleIncrement = (item)=>{
+   console.log(item);
+}
   return (
     <>
       <section>
@@ -100,7 +102,6 @@ function Nav() {
       <section className='search bg-[#F5F5F3] mt-[4%]'>
         <div className=' relative'>
           <Container >
-
             <Flex className="py-7 justify-between">
               <Flex className="gap-x-4 items-center cursor-pointer">
                 {/* ===svg==== */}
@@ -130,9 +131,6 @@ function Nav() {
                 </Flex>
               </div>
             </Flex>
-
-
-
           </Container>
 
           {
@@ -140,28 +138,26 @@ function Nav() {
             <div ref={dropref} className=" overflow-hidden overflow-y-scroll w-2/5 bg-black text-white h-[650px]  absolute top-0 right-0 border-solid border-white border-3">
        <MdCancelPresentation onClick={()=>setopenCart(false)} size={40} className=' absolute top-0 right-0 text-white '/>
 
-       <ul className=' flex w-full  mt-14 border-2 items-center pl-2  py-2 text-lg bg-[#5b5353] '>
-        <li className='w-[13%] '>Remove</li>
-        <li className=' w-[20%]'>Image</li>
-        <li className=' w-[30%]'>Product Name</li>
-        <li className='w-[10%]'>Price</li>
-        <li className='w-[15%]'>Quantity</li>
-        <li className='w-[10%]'>Sub Total</li>
+       <ul className=' flex justify-between  mt-14 border-2 items-center pl-2  py-2 text-lg bg-[#5b5353] '>
+        <li className=' '>Remove</li>
+        <li className=''>Product Name</li>
+        <li className=''>Price</li>
+        <li className=''>Quantity</li>
+        <li className=''>Sub Total</li>
                </ul>
           
           {
             cart.map((item,index)=>(
-              <ul key={index} className=' flex pl-2 gap-y-2  border-black border-2 bg-white text-black py-5 text-center items-center justify-center w-full'>
-              <button  className='w-[10%] text-red-500 text-2xl'><FaDeleteLeft /></button>
-             <Image className="w-[20%] border-black border-2 px-2 " src={Logo}/>
-              <li className=' w-[30%]'>{item.title}</li>
+              <ul key={index} className=' flex pl-2 gap-y-2  border-black border-2 bg-white text-black py-5 text-center items-center justify-between'>
+              <button  className=' text-red-500 text-2xl'><FaDeleteLeft /></button>
+              <li className=''>{item.title}</li>
+              <li  className=''> {item.price}</li>
               <li className='w-[10%] flex flex-col border '>
-                <button className='border-b'>+</button>
-                {item.price}
-                <button className='border-t'>-</button>
+                <button onClick={()=>handleIncrement(item)} className='border-b'>+</button>
+                {item.quantity}
+                <button  className='border-t'>-</button>
                 </li>
-              <li  className='w-[15%]'>{item.quantity}</li>
-              <li className='w-[10%]'>$ {item.quantity * item.price} </li>
+              <li className=''>$ {item.quantity * item.price} </li>
                 </ul>
             ))
           }

@@ -9,9 +9,6 @@ export const CartSlices = createSlice({
 
   reducers: {
     addtoCart: (state, action) => {
-
-      // console.log(action.payload.title);
-
       if (state.cartItem.length > 0) {
         let arr = [];
         state.cartItem.map((item) => {
@@ -27,6 +24,9 @@ export const CartSlices = createSlice({
       else {
         state.cartItem.push(action.payload)
       }
+    },
+    handleIncrement : (state,action)=>{
+
     }
   }
 })
