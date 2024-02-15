@@ -40,6 +40,9 @@ export const CartSlices = createSlice({
      }
      }
      })
+    },
+    removeItem : (state,action)=>{
+      console.log(action.payload);
     }
   }
 })
