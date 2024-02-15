@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { pageName } from '../Redux/BreakCum'
 import {MdCancelPresentation} from 'react-icons/md';
 import { FaDeleteLeft } from "react-icons/fa6";
-import { increment,decrement} from '../Redux/CartSlices'
+import { increment,decrement,removeItem} from '../Redux/CartSlices'
 function Nav() {
   const [scroll, setScroll] = useState(false)
   const [openCart,setopenCart]=useState(false)
@@ -56,6 +56,9 @@ const handleIncrement = (item)=>{
 
 const handleDecrement = (item)=>{
  dispatch(decrement(item))
+}
+const handleRemove =(item)=>{
+  dispatch(removeItem(item))
 }
   return (
     <>
@@ -106,7 +109,7 @@ const handleDecrement = (item)=>{
       <section className='search bg-[#F5F5F3] mt-[4%]'>
         <div className=' relative'>
           <Container >
-            <Flex className="py-7 justify-between">
+            <Flex className="py-3 justify-between">
               <Flex className="gap-x-4 items-center cursor-pointer">
                 {/* ===svg==== */}
                 <svg width="19" height="10" viewBox="0 0 19 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -153,7 +156,7 @@ const handleDecrement = (item)=>{
           {
             cart.map((item,index)=>(
               <ul key={index} className=' flex  px-2 gap-y-2  border-black border-2 bg-white text-black py-5 text-center items-center justify-between'>
-              <button  className=' text-red-500 text-2xl'><FaDeleteLeft /></button>
+              <button onClick={()=>handleRemove(item)}  className=' text-red-500 text-2xl'><FaDeleteLeft /></button>
               <li className=''>{item.title}</li>
               <li  className=''> {item.price}</li>
               <li className='w-[10%] flex flex-col border '>
