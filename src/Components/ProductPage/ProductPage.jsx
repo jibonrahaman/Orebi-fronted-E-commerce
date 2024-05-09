@@ -26,7 +26,7 @@ function ProductPage() {
        <BiSolidCategory size={20} />
         <FaThList size={20} />
        </Flex>
-       <Flex>
+       <Flex className=" gap-x-2">
         <h4>Short by : </h4>
         <select className=' relative px-3 border border-[#f0f0f0]'>
         <MdOutlineArrowDropDown className=' absolute top-0 right-0' />
@@ -34,9 +34,9 @@ function ProductPage() {
           <option value="">Demo</option>
         </select>
        </Flex>
-       <Flex>
+       <Flex className=" gap-x-2"> 
         <h4>Show : </h4>
-        <select className=' relative'>
+        <select className=' relative border border-[#f0f0f0]'>
         <MdOutlineArrowDropDown className=' absolute top-0 right-0' />
           <option value="">36</option>
           <option value="">34</option>
