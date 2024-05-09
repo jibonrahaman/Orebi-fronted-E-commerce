@@ -218,10 +218,11 @@ function Items({ currentItems }) {
   );
 }
 
-function Pagination({ itemsPerPage }) {
+function Pagination({ itemsPerPage,isListHidden , showList }) {
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
+  const [eventselected, seteventselected] = useState();
 
   // Simulate fetching items from another resources.
   // (This could be items from props; or items loaded in a local state
@@ -234,9 +235,9 @@ function Pagination({ itemsPerPage }) {
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % items.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`
     );
+    seteventselected(event.selected)
     setItemOffset(newOffset);
   };
 
@@ -255,7 +256,7 @@ function Pagination({ itemsPerPage }) {
         activeClassName="  bg-[#262626] text-white "
         pageLinkClassName = " px-3 py-1 border border-[#f0f0f0]"
       />
-      <h5 className='mt-8 pl-52'>Products from {itemOffset== 0? itemOffset+1 : itemOffset} to {endOffset >  items.length ? items.length : endOffset} of {items.length}</h5>
+      <h5 className='mt-8 pl-52'>Products from {itemOffset == 0? itemOffset+1 :eventselected +1} to {endOffset >  items.length ? items.length : endOffset } of {items.length}</h5>
     </>
   );
 }
