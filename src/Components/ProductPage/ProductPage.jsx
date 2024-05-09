@@ -28,7 +28,7 @@ function ProductPage() {
        </Flex>
        <Flex>
         <h4>Short by : </h4>
-        <select>
+        <select className=' relative'>
         <MdOutlineArrowDropDown className=' absolute top-0 right-0' />
           <option value="">Featured</option>
           <option value="">Demo</option>
@@ -36,7 +36,7 @@ function ProductPage() {
        </Flex>
        <Flex>
         <h4>Show : </h4>
-        <select>
+        <select className=' relative'>
         <MdOutlineArrowDropDown className=' absolute top-0 right-0' />
           <option value="">36</option>
           <option value="">34</option>
