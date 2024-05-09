@@ -16,13 +16,18 @@ function ProductPage() {
   const [showPagination, setshowPagination] = useState(12)
   const [showList, setShowList] = useState(false);
   const [isListHidden, setIsListHidden] = useState(false);
-  const toggleShowList = () => {
+  const [viewMode, setviewMode] = useState("");
+ 
+  const toggleShowList = (e) => {
     setIsListHidden(false);
     setShowList(true)
+    setviewMode("list")
+   
   };
   const toggleIsListHidden = () => {
     setIsListHidden(true);
     setShowList(false)
+    setviewMode("grid")
   };
 
 
@@ -40,8 +45,8 @@ function ProductPage() {
           <div className=' w-4/5'>
             <Flex className=" justify-between text-[#7e7e7e]">
               <Flex className=" gap-x-4 items-center">
-              <FaThList  onClick={toggleShowList } className=' cursor-pointer' size={20} />
-                <BiSolidCategory onClick={toggleIsListHidden } className=' cursor-pointer' size={20} />
+              <FaThList  onClick={toggleShowList } className={`cursor-pointer text-4xl border p-2 ${viewMode == "list" && "bg-black text-white"}`}  />
+                <BiSolidCategory onClick={toggleIsListHidden } className={`cursor-pointer border text-4xl p-2  ${viewMode == "grid" && "bg-black text-white "}`}  />
                 
               </Flex>
               <Flex className=" gap-x-16">
