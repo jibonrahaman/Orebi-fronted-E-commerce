@@ -4,21 +4,48 @@ import {AiOutlineRight} from "react-icons/ai"
 import Flex from '../../Flex'
 import { Link } from 'react-router-dom'
 import Container from '../../Container'
+import PageHeading from '../../PageHeading'
+import BreadCrum from '../BreadCrum'
+import { BiSolidCategory } from "react-icons/bi";
+import { FaThList } from "react-icons/fa";
+import { MdOutlineArrowDropDown } from "react-icons/md";
+
 function ProductPage() {
 
-  const pagename = useSelector((state => state.BreakCum.previousname))
-  const brod = (window.location.pathname.replace("/", ""))
+  
   return (
     <section>
      <Container>
-     <h2>Product</h2>
-      <Flex className="mt-3  gap-x-2">
-          <Link to={pagename=="Home" ? "/" : pagename=="About" ? "/about" : pagename=="signup" ?  "/sign-up" : pagename=="Contacts" && "/contacts"}>
-          </Link>
-        {pagename}
-        <AiOutlineRight className=' mt-[6px] '/>
-          <p className=' first-letter:uppercase '>{brod}</p>
+    <PageHeading text="Products"/>
+     <BreadCrum/>
+     <Flex className=" justify-between">
+      <div className=' w-1/4'>left side</div>
+      <div className=' w-3/5'>
+        <Flex>
+       <Flex>
+       <BiSolidCategory />
+        <FaThList />
+       </Flex>
+       <Flex>
+        <h4>Short by : </h4>
+        <select>
+        <MdOutlineArrowDropDown className=' absolute top-0 right-0' />
+          <option value="">Featured</option>
+          <option value="">Demo</option>
+        </select>
+       </Flex>
+       <Flex>
+        <h4>Show : </h4>
+        <select>
+        <MdOutlineArrowDropDown className=' absolute top-0 right-0' />
+          <option value="">36</option>
+          <option value="">34</option>
+        </select>
+       </Flex>
         </Flex>
+
+      </div>
+     </Flex>
      </Container>
     </section>
   )

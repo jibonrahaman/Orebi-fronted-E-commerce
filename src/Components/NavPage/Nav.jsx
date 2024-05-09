@@ -143,7 +143,6 @@ useEffect(()=>{
               </div>
             </Flex>
           </Container>
-
           {
             openCart &&
             <div ref={dropref} className="z-20 overflow-hidden overflow-y-scroll w-2/5 bg-black text-white h-[650px]  absolute top-0 right-0 border-solid border-white border-3">
@@ -169,7 +168,6 @@ useEffect(()=>{
                       </li>
                       <li className=''>$ {item.quantity * item.price} </li>
                     </ul>
-
                   ))
                   )
                   :
@@ -183,7 +181,6 @@ useEffect(()=>{
             </div>
           }
         </div>
-
       </section>
     </>
 
