@@ -52,7 +52,7 @@ function ProductPage() {
       </Flex>
         </Flex>
 
-<div className='  flex flex-wrap '>
+<div className=' mt-10 flex flex-wrap '>
 <Pagination itemsPerPage={12} />
 </div>
 

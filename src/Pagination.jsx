@@ -211,7 +211,7 @@ function Items({ currentItems }) {
       {currentItems &&
         currentItems.map((item,index) => (        
             <div key={index} className=' flex flex-wrap '>
-<Slides className=' w-[300px]'  src={item.src} alt={item.alt} price={item.price} title={item.title}/>
+<Slides className=' w-[300px] my-2'  src={item.src} alt={item.alt} price={item.price} title={item.title}/>
           </div>
         ))}
     </>
@@ -245,13 +245,15 @@ function Pagination({ itemsPerPage }) {
       <Items currentItems={currentItems} />
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="< "
         renderOnZeroPageCount={null}
-        containerClassName = ' flex gap-x-3 border border-red-500'
+        containerClassName = 'mt-8 flex gap-x-3 '
+        activeClassName="  bg-[#262626] text-white "
+        pageLinkClassName = " px-3 py-1 border border-[#f0f0f0]"
       />
     </>
   );
