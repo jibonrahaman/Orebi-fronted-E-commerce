@@ -10,18 +10,8 @@ import { BiSolidCategory } from "react-icons/bi";
 import { FaThList } from "react-icons/fa";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import Slides from '../SlidesPage/Slides'
-import Product1 from '../../assets/Product1.png';
-import Product2 from '../../assets/Product2.png';
-import Product3 from '../../assets/Product3.png';
-import Product4 from '../../assets/Product4.png';
-import Product5 from '../../assets/Product5.png';
-import Product6 from '../../assets/Product6.png';
-import Product7 from '../../assets/Product7.png';
-import Product8 from '../../assets/Product8.png';
-import Product9 from '../../assets/Product9.png';
-import Product10 from '../../assets/Product10.png';
-import Product11 from '../../assets/Product11.png';
-import Product12 from '../../assets/Product12.png';
+
+import Pagination from '../../Pagination'
 function ProductPage() {
 
   
@@ -61,17 +51,12 @@ function ProductPage() {
        </Flex>
       </Flex>
         </Flex>
-<Slides className="w-[300px]" src={Product1} alt={Product1} price="44" title="Product 1"/>
-<Slides className="w-[300px]" src={Product2} alt={Product2} price="44" title="Product 1"/>
-<Slides className="w-[300px]" src={Product3} alt={Product3} price="44" title="Product 1"/>
-<Slides className="w-[300px]" src={Product4} alt={Product4} price="44" title="Product 1"/>
-<Slides className="w-[300px]" src={Product5} alt={Product5} price="44" title="Product 1"/>
-<Slides className="w-[300px]" src={Product6} alt={Product6} price="44" title="Product 1"/>
-<Slides className="w-[300px]" src={Product7} alt={Product7} price="44" title="Product 1"/>
-<Slides className="w-[300px]" src={Product8} alt={Product8} price="44" title="Product 1"/>
-<Slides className="w-[300px]" src={Product9} alt={Product9} price="44" title="Product 1"/>
-<Slides className="w-[300px]" src={Product9} alt={Product9} price="44" title="Product 1"/>
-<Slides className="w-[300px]" src={Product10} alt={Product10} price="44" title="Product 1"/>
+
+<div className='  flex flex-wrap '>
+<Pagination itemsPerPage={12} />
+</div>
+
+
       </div>
      </Flex>
      </Container>
