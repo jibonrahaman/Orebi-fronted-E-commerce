@@ -255,6 +255,7 @@ function Pagination({ itemsPerPage }) {
         activeClassName="  bg-[#262626] text-white "
         pageLinkClassName = " px-3 py-1 border border-[#f0f0f0]"
       />
+      <h5>Products from {itemOffset+1} to {endOffset >  items.length ? items.length : endOffset} of {items.length}</h5>
     </>
   );
 }
