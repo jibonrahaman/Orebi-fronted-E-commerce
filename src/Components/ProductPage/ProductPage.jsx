@@ -19,9 +19,9 @@ function ProductPage() {
     <PageHeading text="Products"/>
      <BreadCrum/>
      <Flex className=" justify-between">
-      <div className=' w-1/4'>left side</div>
+      <div className=' w-1/4'>Shop by Category</div>
       <div className=' w-4/5'>
-        <Flex className=" justify-between">
+        <Flex className=" justify-between text-[#f0f0f0]">
        <Flex className=" gap-x-2 items-center">
        <BiSolidCategory size={20} />
         <FaThList size={20} />
