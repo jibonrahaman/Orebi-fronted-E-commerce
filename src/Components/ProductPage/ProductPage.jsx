@@ -28,7 +28,7 @@ function ProductPage() {
        </Flex>
        <Flex>
         <h4>Short by : </h4>
-        <select className=' relative px-3'>
+        <select className=' relative px-3 border border-[#f0f0f0]'>
         <MdOutlineArrowDropDown className=' absolute top-0 right-0' />
           <option value="">Featured</option>
           <option value="">Demo</option>
