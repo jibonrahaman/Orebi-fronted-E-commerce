@@ -22,13 +22,14 @@ function ProductPage() {
       <div className=' w-1/4'>Shop by Category</div>
       <div className=' w-4/5'>
         <Flex className=" justify-between text-[#7e7e7e]">
-       <Flex className=" gap-x-2 items-center">
-       <BiSolidCategory size={20} />
-        <FaThList size={20} />
+       <Flex className=" gap-x-4 items-center">
+       <BiSolidCategory className=' cursor-pointer' size={20} />
+        <FaThList className=' cursor-pointer' size={20} />
        </Flex>
-       <Flex className=" gap-x-2">
+      <Flex className=" gap-x-16">
+      <Flex className=" gap-x-2">
         <h4>Short by : </h4>
-        <select className=' relative px-3 border border-[#f0f0f0]'>
+        <select className='cursor-pointer relative px-3 border border-[#f0f0f0]'>
         <MdOutlineArrowDropDown className=' absolute top-0 right-0' />
           <option value="">Featured</option>
           <option value="">Demo</option>
@@ -36,12 +37,13 @@ function ProductPage() {
        </Flex>
        <Flex className=" gap-x-2"> 
         <h4>Show : </h4>
-        <select className=' relative border border-[#f0f0f0]'>
+        <select className='cursor-pointer relative border border-[#f0f0f0] px-3'>
         <MdOutlineArrowDropDown className=' absolute top-0 right-0' />
           <option value="">36</option>
           <option value="">34</option>
         </select>
        </Flex>
+      </Flex>
         </Flex>
 
       </div>
