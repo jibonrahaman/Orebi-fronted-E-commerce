@@ -7,7 +7,7 @@ import { TbGitCompare } from 'react-icons/tb'
 import { BsCartFill } from 'react-icons/bs'
 import { useDispatch } from 'react-redux'
 import { addtoCart } from '../Redux/CartSlices'
-function Slides({title,price,src,alt}) {
+function Slides({title,price,src,alt,className}) {
   const dispatch=useDispatch()
   const handleAddCart=()=>{
     dispatch(addtoCart({
@@ -18,7 +18,7 @@ function Slides({title,price,src,alt}) {
     }))
   }
   return (
-    <div className=' mx-3   '>
+    <div className={` mx-3   ${className}`}>
       <div className='relative overflow-hidden  group' >
         <img src={src} alt={alt} className='w-full' />
         <NewBtn text="New" className=" absolute top-5 left-6" />
