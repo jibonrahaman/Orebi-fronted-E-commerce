@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import {AiOutlineRight} from "react-icons/ai"
 import Flex from '../../Flex'
@@ -13,7 +13,7 @@ import Slides from '../SlidesPage/Slides'
 
 import Pagination from '../../Pagination'
 function ProductPage() {
-
+const [showPagination, setshowPagination] = useState(12)
   
   return (
     <section>
@@ -43,17 +43,18 @@ function ProductPage() {
        </Flex>
        <Flex className=" gap-x-2"> 
         <h4>Show : </h4>
-        <select className='cursor-pointer relative border border-[#f0f0f0] px-3'>
+        <select onChange={(e)=>setshowPagination(e.target.value)} className='cursor-pointer relative border border-[#f0f0f0] px-3'>
         <MdOutlineArrowDropDown className=' absolute top-0 right-0' />
-          <option value="">36</option>
-          <option value="">34</option>
+          <option value="12">12</option>
+          <option value="24">24</option>
+          <option value="36">36</option>
         </select>
        </Flex>
       </Flex>
         </Flex>
 
 <div className=' mt-10 flex flex-wrap '>
-<Pagination itemsPerPage={12} />
+<Pagination itemsPerPage={showPagination} />
 </div>
 
 
