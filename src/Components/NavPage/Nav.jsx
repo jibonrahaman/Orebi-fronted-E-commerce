@@ -40,9 +40,7 @@ function Nav() {
     const falseHover = (e) => {
       if (!dropref.current.contains(e.target)) {
         setopenCart(false)
-
       }
-
     }
     document.addEventListener("mousedown", falseHover)
     return () => {
@@ -63,9 +61,7 @@ function Nav() {
 const [total,setTotal]=useState(false)
 useEffect(()=>{
  let total = 0
-  cart.map((item)=>{
-   total += item.price * item.quantity
-  })
+  cart.map((item)=>{total += item.price * item.quantity })
   setTotal(total);
 }, [cart])
   return (
@@ -142,7 +138,7 @@ useEffect(()=>{
                         </svg>
                       </Flex>
                     </div></Link>
-                  <BsCartFill size={20} onClick={() => setopenCart(true)} />{cart.length}
+                  <BsCartFill className='cursor-pointer' size={20} onClick={() => setopenCart(true)} />{cart.length}
                 </Flex>
               </div>
             </Flex>
@@ -150,8 +146,8 @@ useEffect(()=>{
 
           {
             openCart &&
-            <div ref={dropref} className=" overflow-hidden overflow-y-scroll w-2/5 bg-black text-white h-[650px]  absolute top-0 right-0 border-solid border-white border-3">
-              <MdCancelPresentation onClick={() => setopenCart(false)} size={40} className=' absolute top-0 right-0 text-white ' />
+            <div ref={dropref} className="z-20 overflow-hidden overflow-y-scroll w-2/5 bg-black text-white h-[650px]  absolute top-0 right-0 border-solid border-white border-3">
+              <MdCancelPresentation onClick={() => setopenCart(false)} size={40} className=' cursor-pointer absolute top-0 right-0 text-white ' />
               <ul className=' flex justify-between  mt-14 border-2 items-center  px-2  py-2 text-lg bg-[#5b5353] '>
                 <li className=' '>Remove</li>
                 <li className=''>Product Name</li>
@@ -162,7 +158,7 @@ useEffect(()=>{
               {
                 cart.length > 0 ?
                   (cart.map((item, index) => (
-                    <ul key={index} className=' flex   px-2 gap-y-2  border-black border-2 bg-white text-black py-3 text-center items-center justify-between'>
+                    <ul key={index} className=' flex   px-2 gap-y-2  border-white border-2 bg-black text-white py-3 text-center items-center justify-between'>
                       <button onClick={() => handleRemove(item)} className=' text-red-500 text-2xl'><FaDeleteLeft /></button>
                       <li className=''>{item.title}</li>
                       <li className=''> {item.price}</li>
@@ -182,7 +178,7 @@ useEffect(()=>{
                   </div>
                   )
               }
-              <div className=' border border-red-400 border-t-4 mt-2'></div>
+              <div className=' border border-white border-t-4 mt-2'></div>
               <h2 className=' text-right  text-xl py-5 mr-10   '>Total : {total} </h2>
             </div>
           }
