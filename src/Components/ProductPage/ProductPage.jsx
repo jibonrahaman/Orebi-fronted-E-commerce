@@ -21,14 +21,14 @@ function ProductPage() {
      <Flex className=" justify-between">
       <div className=' w-1/4'>Shop by Category</div>
       <div className=' w-4/5'>
-        <Flex className=" justify-between text-[#f0f0f0]">
+        <Flex className=" justify-between text-[#7e7e7e]">
        <Flex className=" gap-x-2 items-center">
        <BiSolidCategory size={20} />
         <FaThList size={20} />
        </Flex>
        <Flex>
         <h4>Short by : </h4>
-        <select className=' relative'>
+        <select className=' relative px-3'>
         <MdOutlineArrowDropDown className=' absolute top-0 right-0' />
           <option value="">Featured</option>
           <option value="">Demo</option>
