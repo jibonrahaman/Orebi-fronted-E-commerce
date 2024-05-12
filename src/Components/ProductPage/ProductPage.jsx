@@ -10,6 +10,7 @@ import { BiSolidCategory } from "react-icons/bi";
 import { FaThList } from "react-icons/fa";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import Slides from '../SlidesPage/Slides'
+import { FaPlus } from "react-icons/fa6";
 
 import Pagination from '../../Pagination'
 function ProductPage() {
@@ -37,9 +38,37 @@ function ProductPage() {
         <PageHeading text="Products" />
         <BreadCrum />
         {/* degin left side and righ side product & Shop by Category */}
-        <Flex className=" justify-between">
+        <Flex className=" justify-between gap-x-10">
           {/* left side Shop by Category */}
-          <div className=' w-1/4'>Shop by Category</div>
+          <div className='w-[20%]'>
+           <Flex className="flex-col gap-y-6">
+           <h3 className='font-semibold text-xl  mt-5'>Shop by Category</h3>
+            <Flex className="justify-between items-center">
+            <p>Category 1</p>
+            <FaPlus size={15}/>
+            </Flex>
+            <p>Category 2</p>
+            <Flex className="justify-between items-center">
+            <p>Category 3</p>
+            <FaPlus size={15}/>
+            </Flex>
+            <p>Category 4</p>
+            <p>Category 5</p>
+                  
+           <h3 className='font-semibold text-xl mt-5'>Shop by Color</h3>
+            <Flex className="justify-between items-center">
+            <p>Color 1</p>
+            <FaPlus size={15}/>
+            </Flex>
+            <p>Color 2</p>
+            <Flex className="justify-between items-center">
+            <p>Color 3</p>
+            <FaPlus size={15}/>
+            </Flex>
+            <p>Color 4</p>
+            <p>Color 5</p>
+            </Flex>
+          </div>
 
           {/* right side product design  */}
           <div className=' w-4/5'>
