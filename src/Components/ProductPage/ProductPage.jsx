@@ -39,10 +39,10 @@ function ProductPage() {
   return (
     <section>
       <Container>
-        <PageHeading text="Products" />
+        <PageHeading text="Products"  className="pb-5" />
         <BreadCrum />
         {/* degin left side and righ side product & Shop by Category */}
-        <Flex className=" justify-between gap-x-10">
+        <Flex className=" justify-between gap-x-10 pt-8">
           {/* left side Shop by Category */}
           <div className='w-[20%]'>
             <Flex className="flex-col gap-y-6 cursor-pointer">
@@ -60,7 +60,7 @@ function ProductPage() {
                 <FaThList onClick={toggleShowList} className={`cursor-pointer text-4xl border p-2 ${viewMode == "list" && "bg-black text-white"}`} />
                 <BiSolidCategory onClick={toggleIsListHidden} className={`cursor-pointer border text-4xl p-2  ${viewMode == "grid" && "bg-black text-white "}`} />
               </Flex>
-              
+
               <Flex className=" gap-x-16">
                 <Flex className=" gap-x-2">
                   <h4>Short by : </h4>

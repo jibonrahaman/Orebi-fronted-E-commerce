@@ -3,8 +3,8 @@ import { MdArrowDropUp, MdOutlineArrowDropDown } from 'react-icons/md'
 import Flex from './Flex'
 
 export default function ShopByColor() {
-    const [IconDropShow, setIconDropShow] = useState(false)
-    const [itemShow, setitemShow] = useState(false)
+    const [IconDropShow, setIconDropShow] = useState(true)
+    const [itemShow, setitemShow] = useState(true)
     const handleDrop = () => {
         setitemShow(!itemShow)
     }
@@ -14,9 +14,9 @@ export default function ShopByColor() {
                 <h3 className='font-semibold text-xl mt-5'>Shop by Color</h3>
                 {
                     itemShow ?
-                    <MdArrowDropUp size={30} className='mt-4' />
+                    <MdOutlineArrowDropDown size={30} className='mt-4' />
               :
-              <MdOutlineArrowDropDown size={30} className='mt-4' />
+              <MdArrowDropUp size={30} className='mt-4' />
                 }
             </div>
 
