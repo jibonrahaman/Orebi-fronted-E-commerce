@@ -25,10 +25,12 @@ export default function ShopByCategory() {
               fetchCategory.map((item,index)=>{
                return <>
                <button key={index} onClick={()=>setToggleCategory(!ToggleCategory)} className="flex justify-between items-center">
-                <p className=' font-bold text-green-600'>{item.name}</p>
+                <p>{item.name}</p>
                 {ToggleCategory ?<FaMinus size={15}/> :<FaPlus size={15}/>}
                 </button>
-                {item.subCategory?.map((item)=>ToggleCategory && <p className=' border-b text-sm text-re'>{item.name}</p>)}
+                {item.subCategory.map((item)=>{
+                  console.log();
+                })}
                </>
               })
             }
