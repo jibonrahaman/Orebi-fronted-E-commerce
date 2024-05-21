@@ -1,22 +1,20 @@
-import React from 'react'
-import { FaPlus } from 'react-icons/fa'
+import React, { useState } from 'react'
+import { FaMinus, FaPlus } from 'react-icons/fa'
 
 export default function ShopByCategory() {
+  const [ToggleCategory,setToggleCategory] = useState(false)
+  
   return (
     <>
         {/*Shop by Category  */}
         <h3 className='font-semibold text-xl  mt-5'>Shop by Category</h3>
-            <button className="flex justify-between items-center">
+            <button onClick={()=>setToggleCategory(!ToggleCategory)} className="flex justify-between items-center">
             <p>Category 1</p>
-            <FaPlus size={15}/>
+            {ToggleCategory ?<FaMinus size={15}/> :<FaPlus size={15}/>}
             </button>
-            <p>Category 2</p>
-            <button className="flex justify-between items-center">
-            <p>Category 3</p>
-            <FaPlus size={15}/>
-            </button>
-            <p>Category 4</p>
-            <p>Category 5</p>
+            {ToggleCategory && <p className=' border-b'>demo</p>}
+          
+           
     </>
   )
 }
