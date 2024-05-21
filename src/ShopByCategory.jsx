@@ -28,9 +28,7 @@ export default function ShopByCategory() {
                 <p>{item.name}</p>
                 {ToggleCategory ?<FaMinus size={15}/> :<FaPlus size={15}/>}
                 </button>
-                {item.subCategory.map((item)=>{
-                  console.log();
-                })}
+                {item.subCategory?.map((item)=>console.log(item.name))}
                </>
               })
             }
