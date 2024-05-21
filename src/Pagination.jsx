@@ -16,25 +16,41 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
 import Slides from './Components/SlidesPage/Slides'
+import axios from 'axios'
 
-// Example items, to simulate fetching from another resources.
-const items =[1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+
+
+function Pagination({ itemsPerPage,isListHidden , showList }) {
+
+  const [productData, setProductData] = useState([]);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get("http://localhost:7000/api/v1/allget/getproduct")
+        setProductData(response.data);
+        
+      } catch (error) {
+        console.log("Error Fethcing Product Data", error);
+      }
+    }
+    fetchProduct()
+  }, [])
+  
+  // Example items, to simulate fetching from another resources.
+const items =productData
 
 function Items({ currentItems }) {
   return (
     <>
       {currentItems &&
         currentItems.map((item,index) => (        
-            <div key={index} className=' '>
- <Slides className=' w-[300px] my-2' src={Product1}  alt={Product1}  price= "44" title= "Product 1"/>
-
+          <div key={index} >
+  <Slides className=' w-[300px] my-2' src={Product1}  alt={Product1}  price= "44" title= "Product 1"/>
           </div>
         ))}
     </>
   );
 }
-
-function Pagination({ itemsPerPage,isListHidden , showList }) {
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
