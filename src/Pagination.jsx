@@ -18,200 +18,16 @@ import ReactPaginate from 'react-paginate';
 import Slides from './Components/SlidesPage/Slides'
 
 // Example items, to simulate fetching from another resources.
-const items = [
-    // ..................................... 
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-         // ..................................... 
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-           // ..................................... 
-              // ..................................... 
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-         // ..................................... 
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-           // .....................................    // ..................................... 
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-         // ..................................... 
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-           // .....................................    // ..................................... 
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-         // ..................................... 
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-           // .....................................    // ..................................... 
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-         // ..................................... 
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-           // .....................................    // ..................................... 
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-         // ..................................... 
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-           // .....................................    // ..................................... 
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-         // ..................................... 
-{ src: Product12, alt: "Product 12", price: "44", title: "Product 12" },
-{ src: Product11, alt: "Product 11", price: "44", title: "Product 11" },
-{ src: Product10, alt: "Product 10", price: "44", title: "Product 10" },
-{ src: Product9, alt: "Product 9", price: "44", title: "Product 9" },
-{ src: Product8, alt: "Product 8", price: "44", title: "Product 8" },
-{ src: Product7, alt: "Product 7", price: "44", title: "Product 7" },
-{ src: Product6, alt: "Product 6", price: "44", title: "Product 6" },
-{ src: Product5, alt: "Product 5", price: "44", title: "Product 5" },
-{ src: Product4, alt: "Product 4", price: "44", title: "Product 4" },
-{ src: Product3, alt: "Product 3", price: "44", title: "Product 3" },
-{ src: Product2, alt: "Product 2", price: "44", title: "Product 2" },
-{ src: Product1, alt: "Product 1", price: "44", title: "Product 1" },
-           // ..................................... 
-];
+const items =[1,2,3,4,5,6,7,8,9,10,11,12,13,14]
 
 function Items({ currentItems }) {
   return (
     <>
       {currentItems &&
         currentItems.map((item,index) => (        
-            <div key={index} className=' flex flex-wrap '>
-<Slides className=' w-[300px] my-2'  src={item.src} alt={item.alt} price={item.price} title={item.title}/>
+            <div key={index} className=' '>
+ <Slides className=' w-[300px] my-2' src={Product1}  alt={Product1}  price= "44" title= "Product 1"/>
+
           </div>
         ))}
     </>
@@ -242,8 +58,8 @@ function Pagination({ itemsPerPage,isListHidden , showList }) {
   };
 
   return (
-    <>
-      <Items currentItems={currentItems} />
+    <>      
+     <Items currentItems={currentItems} />
       <ReactPaginate
         breakLabel="..."
         nextLabel=">"
@@ -253,10 +69,12 @@ function Pagination({ itemsPerPage,isListHidden , showList }) {
         previousLabel="< "
         renderOnZeroPageCount={null}
         containerClassName = 'mt-8 flex gap-x-3 '
-        activeClassName="  bg-[#262626] text-white "
-        pageLinkClassName = " px-3 py-1 border border-[#f0f0f0]"
+        activeClassName="  bg-[#262626] text-white h-6"
+        pageLinkClassName = " px-3 py-1 border border-[#f0f0f0] "
       />
-      <h5 className='mt-8 pl-52'>Products from {itemOffset == 0? itemOffset+1 :eventselected +1} to {endOffset >  items.length ? items.length : endOffset } of {items.length}</h5>
+      <h5 className='mt-8 pl-14'>Products from {itemOffset == 0? itemOffset+1 :eventselected +1} to {endOffset >  items.length ? items.length : endOffset } of {items.length}</h5>
+    
+      
     </>
   );
 }
