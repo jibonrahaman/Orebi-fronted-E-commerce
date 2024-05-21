@@ -45,7 +45,8 @@ export default function ShopByCategory() {
            ) 
            :
            (
-            <p key={subIndex} className='border-b text-sm text-red-700 ml-4'>No SubCategory</p>
+            expandedCategory === index &&
+            <p  className='border-b text-sm text-red-700 ml-4'>No SubCategory</p>
            )
           }
           </div>
