@@ -37,9 +37,15 @@ export default function ShopByCategory() {
               <p className='font-bold text-green-600'>{item.name}</p>
               {expandedCategory === index ? <FaMinus size={15}/> : <FaPlus size={15}/>}
             </button>
-            {item.subCategory?.map((subItem, subIndex) => (
-             expandedCategory === index && <p key={subIndex} className='border-b text-sm text-red-700 ml-4'>{subItem.name}</p>
-            ))}
+           {item.subCategory.length >0 ?
+           (
+            <p>ace</p>
+           ) 
+           :
+           (
+            <p>nai</p>
+           )
+          }
           </div>
         ))
       }
