@@ -21,14 +21,15 @@ import axios from 'axios'
 
 
 function Pagination({ itemsPerPage,isListHidden , showList }) {
-
+    
   const [productData, setProductData] = useState([]);
+
+  // fetching Product Data
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get("http://localhost:7000/api/v1/allget/getproduct")
-        setProductData(response.data);
-        
+        setProductData(response.data);        
       } catch (error) {
         console.log("Error Fethcing Product Data", error);
       }
@@ -45,7 +46,7 @@ function Items({ currentItems }) {
       {currentItems &&
         currentItems.map((item,index) => (        
           <div key={index} >
-  <Slides className=' w-[300px] my-2' src={Product1}  alt={Product1}  price= "44" title= "Product 1"/>
+  <Slides className=' w-[300px] my-2' src={Product1}  alt={Product1}  price= "44" title= {item.name}/>
           </div>
         ))}
     </>
