@@ -20,16 +20,16 @@ import axios from 'axios'
 
 
 
-function Pagination({ itemsPerPage,isListHidden , showList }) {
-    
-  const [productData, setProductData] = useState([]);
+function Pagination({ itemsPerPage, isListHidden, showList }) {
 
+  const [productData, setProductData] = useState([]);
+  const [variantData, setVariantData] = useState([]);
   // fetching Product Data
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get("http://localhost:7000/api/v1/allget/getproduct")
-        setProductData(response.data);        
+        setProductData(response.data);
       } catch (error) {
         console.log("Error Fethcing Product Data", error);
       }
@@ -37,21 +37,30 @@ function Pagination({ itemsPerPage,isListHidden , showList }) {
     fetchProduct()
   }, [])
   
-  // Example items, to simulate fetching from another resources.
-const items =productData
 
-function Items({ currentItems }) {
-  return (
-    <>
-      {currentItems &&
-        currentItems.map((item,index) => (        
-          <div key={index} >
-  <Slides className=' w-[300px] my-2' src={Product1}  alt={Product1}  price= "44" title= {item.name}/>
-          </div>
-        ))}
-    </>
-  );
-}
+  // get all variant data fetching 
+  useEffect(()=>{
+  const fetchVariant = async ()=>{
+    const response = await axios.get("http://localhost:7000/api/v1/allget/getvariant");
+    setVariantData(response.data);
+  }
+  fetchVariant()
+  }, [])
+  // Example items, to simulate fetching from another resources.
+  const items = productData
+
+  function Items({ currentItems }) {
+    return (
+      <>
+        {currentItems &&
+          currentItems.map((item, index) => (    
+            <div key={index} >
+              <Slides className=' w-[300px] my-2' src={item.Variant[0]?.img} alt={Product1} price={item.Variant[0] ? item.Variant[0].price:"00"} title={item.name} />
+            </div>
+          ))}
+      </>
+    );
+  }
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
@@ -75,8 +84,8 @@ function Items({ currentItems }) {
   };
 
   return (
-    <>      
-     <Items currentItems={currentItems} />
+    <>
+      <Items currentItems={currentItems} />
       <ReactPaginate
         breakLabel="..."
         nextLabel=">"
@@ -85,13 +94,13 @@ function Items({ currentItems }) {
         pageCount={pageCount}
         previousLabel="< "
         renderOnZeroPageCount={null}
-        containerClassName = 'mt-8 flex gap-x-3 '
+        containerClassName='mt-8 flex gap-x-3 '
         activeClassName="  bg-[#262626] text-white h-6"
-        pageLinkClassName = " px-3 py-1 border border-[#f0f0f0] "
+        pageLinkClassName=" px-3 py-1 border border-[#f0f0f0] "
       />
-      <h5 className='mt-8 pl-14'>Products from {itemOffset == 0? itemOffset+1 :eventselected +1} to {endOffset >  items.length ? items.length : endOffset } of {items.length}</h5>
-    
-      
+      <h5 className='mt-8 pl-14'>Products from {itemOffset == 0 ? itemOffset + 1 : eventselected + 1} to {endOffset > items.length ? items.length : endOffset} of {items.length}</h5>
+
+
     </>
   );
 }

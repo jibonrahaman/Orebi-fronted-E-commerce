@@ -37,13 +37,13 @@ function ProductPage() {
 
 
   return (
-    <section>
+    <section >
       <Container>
         <PageHeading text="Products"  className="pb-5" />
         <BreadCrum />
         {/* degin left side and righ side product & Shop by Category */}
-        <Flex className=" justify-between gap-x-10 pt-8">
-          {/* left side Shop by Category */}
+        <Flex className=" justify-between gap-x-10 pt-8 cursor-pointer ">
+          {/* left side Shop by Category*/}
           <div className='w-[20%]'>
             <Flex className="flex-col gap-y-6 cursor-pointer">
               <ShopByCategory />

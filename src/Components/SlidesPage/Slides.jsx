@@ -18,9 +18,9 @@ function Slides({title,price,src,alt,className}) {
     }))
   }
   return (
-    <div className={` mx-3   ${className}`}>
+    <div className={` mx-3 mb-6 border p-5 ${className}`}>
       <div className='relative overflow-hidden  group' >
-        <img src={src} alt={alt} className='w-full' />
+        <img src={src} alt={alt} className='w-full h-[300px] ' />
         <NewBtn text="New" className=" absolute top-5 left-6" />
         <div className=' absolute -bottom-44 group-hover:bottom-0 duration-700 left-0 bg-[#F5F5F5] p-6 w-full '>
           <Flex className="items-center justify-end cursor-pointer  gap-x-4">

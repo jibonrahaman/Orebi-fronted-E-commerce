@@ -15,7 +15,7 @@ function Home() {
  
     <>
 
-  <Gap />
+  <Gap  />
   <Banner />
   <Waranty />
   <Sliding />
