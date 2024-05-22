@@ -18,7 +18,7 @@ function Slides({title,price,src,alt,className}) {
     }))
   }
   return (
-    <div className={` mx-3 mb-6 border p-5 ${className}`}>
+    <div className={` mx-3 mb-6 border p-5 bg-gray-200 ${className}`}>
       <div className='relative overflow-hidden  group' >
         <img src={src} alt={alt} className='w-full h-[300px] ' />
         <NewBtn text="New" className=" absolute top-5 left-6" />
