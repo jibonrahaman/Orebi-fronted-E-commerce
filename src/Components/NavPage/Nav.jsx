@@ -144,9 +144,14 @@ console.log(cart);
                   cart.map((item,index)=>{
                  return <div key={index}>
                   <div className=' flex gap-x-5 p-10   items-center'>
-                  <img className=' w-[100px]' src={item.img} alt="" />
-                  <h2>price :$ {item.price}</h2>  
-                  <button onClick={()=>handleRemove(item)} className=' px-3 py-1 bg-red-500 rounded'>remove</button>               
+                 <div>
+                 <img className=' w-[100px]' src={item.img} alt="" />
+                 </div>
+                 <div>
+                 <h2>price :$ {item.price}</h2>  
+                  <h2>Name : {item.productName ? item.productName : "*"}</h2>  
+                    </div>  
+                    <button onClick={()=>handleRemove(item)} className='mt-4 px-3 py-1 bg-red-500 rounded'>remove </button>           
                   </div>
                   <Flex className="border-b pb-4 pl-6 gap-x-4">
                     <button className=' px-4 py-2 border border-bg-white bg-red-200 text-black rounded-lg'>ViewCart</button>
