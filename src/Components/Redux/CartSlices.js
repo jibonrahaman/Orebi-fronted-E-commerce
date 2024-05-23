@@ -9,6 +9,12 @@ export const CartSlices = createSlice({
 
   reducers:{
     addtoCart: (state, action) =>{
+      const finds = state.cartItem.findIndex((item)=> item._id === action.payload._id)
+      if(finds === -1){
+        state.cartItem.push(action.payload)
+      }else{
+        console.log("Item already exist add to cart");
+      }
      
     }
   }

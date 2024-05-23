@@ -23,7 +23,7 @@ function Slides({title,price,src,alt,className,ProductDatas}) {
     <div className={` mx-3 mb-6 border p-5 bg-gray-200 ${className}`}>
       <div className='relative overflow-hidden  group' >
         <NewBtn text="New" className=" absolute top-3 left-2" />
-       <Link to={`/product/${ProductDatas._id}`}>
+       <Link to={`/product/${ProductDatas?._id}`}>
        <img  src={src} alt={alt} className='w-full h-[300px] ' />
        </Link>
         {/* <div className=' absolute -bottom-44 group-hover:bottom-0 duration-700 left-0 bg-[#F5F5F5] p-6 w-full '>
