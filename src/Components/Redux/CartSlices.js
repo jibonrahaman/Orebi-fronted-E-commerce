@@ -12,6 +12,7 @@ export const CartSlices = createSlice({
       const finds = state.cartItem.findIndex((item)=> item._id === action.payload._id)
       if(finds === -1){
         state.cartItem.push(action.payload)
+        localStorage.setItem("addtoCart", JSON.stringify(state.cartItem));
       }else{
         console.log("Item already exist add to cart");
       }

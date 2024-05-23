@@ -134,19 +134,22 @@ console.log(cart);
             <div ref={dropref} className="z-20 overflow-hidden overflow-y-scroll w-2/5 bg-black text-white h-[650px]  absolute top-0 right-0 border-solid border-white border-3">
               <MdCancelPresentation onClick={() => setopenCart(false)} size={40} className=' cursor-pointer absolute top-0 right-0 text-white'/>
               
+              
               {
-                cart.length > 0 ?
-                 (
-                  <div>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quam?</p>
-                 </div>
-                 )
+
+              
+                // cart.length > 0 ?
+                //  (
+                //   <div>
+                //   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quam?</p>
+                //  </div>
+                //  )
                   
-                  :
-                  (<div>
-                    <h1 className=' text-center mt-2'>Cart is Empty </h1>
-                  </div>
-                  )
+                //   :
+                //   (<div>
+                //     <h1 className=' text-center mt-2'>Cart is Empty </h1>
+                //   </div>
+                //   )
               }
               <div className=' border border-white border-t-4 mt-2'></div>
               <h2 className=' text-right  text-xl py-5 mr-10   '>Total :  </h2>
