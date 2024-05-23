@@ -27,7 +27,7 @@ export default function ProductVariants() {
    
   }
   const findsProduct = productData.find((item)=> item._id === id)
-  console.log(findsProduct);
+
   return (
     <section>
       <Container>

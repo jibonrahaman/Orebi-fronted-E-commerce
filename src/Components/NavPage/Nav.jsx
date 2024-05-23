@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { pageName } from '../Redux/BreakCum'
 import { MdCancelPresentation } from 'react-icons/md';
 import { FaDeleteLeft } from "react-icons/fa6";
-import { increment, decrement, removeItem } from '../Redux/CartSlices'
+import { removeItem } from '../Redux/CartSlices'
 function Nav() {
   const cart = useSelector(state => state.cart.cartItem)
 console.log(cart);
@@ -49,6 +49,9 @@ console.log(cart);
   }, [])
   const dropref = useRef(null);
   
+  const handleRemove = (item)=>{
+    dispatch(removeItem(item))
+  }
   
   return (
     <>
@@ -131,28 +134,36 @@ console.log(cart);
           </Container>
           {
             openCart &&
-            <div ref={dropref} className="z-20 overflow-hidden overflow-y-scroll w-2/5 bg-black text-white h-[650px]  absolute top-0 right-0 border-solid border-white border-3">
+            <div ref={dropref} className="z-20 overflow-hidden overflow-y-scroll bg-black text-white h-[650px] w-[400px]  absolute top-0 right-0 border-solid border-white border-3">
               <MdCancelPresentation onClick={() => setopenCart(false)} size={40} className=' cursor-pointer absolute top-0 right-0 text-white'/>
               
               
               {
-
-              
-                // cart.length > 0 ?
-                //  (
-                //   <div>
-                //   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quam?</p>
-                //  </div>
-                //  )
+                cart.length > 0 ?
+                 (
+                  cart.map((item,index)=>{
+                 return <div key={index}>
+                  <div className=' flex gap-x-5 p-10   items-center'>
+                  <img className=' w-[100px]' src={item.img} alt="" />
+                  <h2>price :$ {item.price}</h2>  
+                  <button onClick={()=>handleRemove(item)} className=' px-3 py-1 bg-red-500 rounded'>remove</button>               
+                  </div>
+                  <Flex className="border-b pb-4 pl-6 gap-x-4">
+                    <button className=' px-4 py-2 border border-bg-white bg-red-200 text-black rounded-lg'>ViewCart</button>
+                    <button className=' px-4 py-2 border border-bg-white bg-red-200 text-black rounded-lg'>CheakOut</button>
+                  </Flex>
+                 </div>
+                  })
+                 )
                   
-                //   :
-                //   (<div>
-                //     <h1 className=' text-center mt-2'>Cart is Empty </h1>
-                //   </div>
-                //   )
+                  :
+                  (<div>
+                    <h1 className=' text-center mt-2'>Cart is Empty </h1>
+                  </div>
+                  )
               }
-              <div className=' border border-white border-t-4 mt-2'></div>
-              <h2 className=' text-right  text-xl py-5 mr-10   '>Total :  </h2>
+              {/* <div className=' border border-white border-t-4 mt-2'></div>
+              <h2 className=' text-right  text-xl py-5 mr-10   '>Total :  </h2> */}
             </div>
           }
         </div>
