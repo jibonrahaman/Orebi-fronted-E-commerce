@@ -22,9 +22,9 @@ export default function ProductVariants() {
     fetchProduct()
   }, [])
 
-  const handleAddCart = (item)=>{
-   
+  const handleAddCart = (item)=>{   
     dispatch(addtoCart(item))
+    localStorage.setItem("addtoCart", JSON.stringify(item))
   }
   const findsProduct = productData.find((item)=> item._id === id)
   console.log(findsProduct);
