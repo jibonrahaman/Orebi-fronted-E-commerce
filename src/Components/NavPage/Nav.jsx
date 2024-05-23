@@ -58,12 +58,12 @@ function Nav() {
   const handleRemove = (item) => {
     dispatch(removeItem(item))
   }
-const [total,setTotal]=useState(false)
-useEffect(()=>{
- let total = 0
-  cart.map((item)=>{total += item.price * item.quantity })
-  setTotal(total);
-}, [cart])
+  const [total, setTotal] = useState(false)
+  useEffect(() => {
+    let total = 0
+    cart.map((item) => { total += item.price * item.quantity })
+    setTotal(total);
+  }, [cart])
   return (
     <>
       <section>

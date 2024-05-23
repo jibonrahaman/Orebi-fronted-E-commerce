@@ -55,7 +55,7 @@ function Pagination({ itemsPerPage, isListHidden, showList }) {
         {currentItems &&
           currentItems.map((item, index) => (    
             <div key={index} >
-              <Slides className=' w-[300px] my-2' src={item.Variant[0]? item.Variant[0].img : "no product img"} alt={Product1} price={item.Variant[0] ? item.Variant[0].price:"00"} title={item.name} />
+              <Slides ProductDatas={item}  className=' w-[300px] my-2' src={item.Variant[0]? item.Variant[0].img : "no product img"} alt={Product1} price={item.Variant[0] ? item.Variant[0].price:"00"} title={item.name} />
             </div>
           ))}
       </>

@@ -15,6 +15,7 @@ import { Provider } from 'react-redux'
 import { store } from './Components/Redux/Store'
 import Contacts from './Components/ContactsPart/Contacts.jsx'
 import ProductPage from './Components/ProductPage/ProductPage.jsx'
+import ProductVariants from './Components/ProductVariant/ProductVariants.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
@@ -27,6 +28,9 @@ const router = createBrowserRouter(
 
        <Route path="/shop" 
       element={<ProductPage/>}>
+      </Route> 
+       <Route path='/product/:id' 
+      element={<ProductVariants/>}>
       </Route>
       
        <Route path="/about" 
@@ -38,7 +42,6 @@ const router = createBrowserRouter(
 
       <Route path="/sign-up" 
       element={<SignUpPage/>}>
-
       </Route>
      
       
