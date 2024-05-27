@@ -20,14 +20,14 @@ export default function ViewCart() {
         <li>Total</li>
          </Flex>
          {/* Cart item  */}
-         <Flex className=" justify-between  items-center py-2">      
+         <Flex className=" justify-between  items-center py-2 px-5">      
        <Flex className=" w-[400px] gap-x-5 items-center">
        <FaDeleteLeft /> 
        <img className=" w-20" src={Product3} alt="" />
      <p>Product Name</p>
        </Flex>
        <p>price</p>
-       <Flex >
+       <Flex className=" gap-x-5">
         <button>-</button>
         <button>1</button>
         <button>+</button>
