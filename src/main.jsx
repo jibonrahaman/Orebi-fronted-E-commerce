@@ -16,6 +16,7 @@ import { store } from './Components/Redux/Store'
 import Contacts from './Components/ContactsPart/Contacts.jsx'
 import ProductPage from './Components/ProductPage/ProductPage.jsx'
 import ProductVariants from './Components/ProductVariant/ProductVariants.jsx'
+import ViewCart from './Components/VewCart/ViewCart.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
@@ -30,8 +31,10 @@ const router = createBrowserRouter(
       element={<ProductPage/>}>
       </Route> 
        <Route path='/product/:id' 
-      element={<ProductVariants/>}>
+      element={<ProductVariants/>}>        
       </Route>
+      <Route path='/viewcart' 
+      element={<ViewCart/>}/>
       
        <Route path="/about" 
       element={<AboutPage/>}>

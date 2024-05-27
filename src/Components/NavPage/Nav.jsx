@@ -31,20 +31,21 @@ console.log(cart);
     };
   }, []);
 
-  
+
   const dispatch = useDispatch()
   const handlename = (name) => {
     dispatch(pageName(name))
   }
   useEffect(() => {
-    const falseHover = (e) => {
+    const falseHover = (e) => {     
       if (!dropref.current.contains(e.target)) {
-        setopenCart(false)
+        setopenCart(false);
       }
     }
-    document.addEventListener("mousedown", falseHover)
+    document.addEventListener("mousedown", falseHover);
+   
     return () => {
-      document.removeEventListener("mousedown", falseHover)
+      document.removeEventListener("mousedown", falseHover);      
     }
   }, [])
   const dropref = useRef(null);
@@ -134,7 +135,7 @@ console.log(cart);
           </Container>
           {
             openCart &&
-            <div ref={dropref} className="z-20 overflow-hidden overflow-y-scroll bg-black text-white h-[650px] w-[400px]  absolute top-0 right-0 border-solid border-white border-3">
+            <div ref={dropref} className="z-20 overflow-hidden overflow-y-scroll bg-black text-white h-[650px] w-[550px]  absolute top-0 right-0 border-solid border-white border-3">
               <MdCancelPresentation onClick={() => setopenCart(false)} size={40} className=' cursor-pointer absolute top-0 right-0 text-white'/>
               
               
@@ -154,7 +155,9 @@ console.log(cart);
                     <button onClick={()=>handleRemove(item)} className='mt-4 px-3 py-1 bg-red-500 rounded'>remove </button>           
                   </div>
                   <Flex className="border-b pb-4 pl-6 gap-x-4">
+                    <Link to="/viewcart">
                     <button className=' px-4 py-2 border border-bg-white bg-red-200 text-black rounded-lg'>ViewCart</button>
+                    </Link>
                     <button className=' px-4 py-2 border border-bg-white bg-red-200 text-black rounded-lg'>CheakOut</button>
                   </Flex>
                  </div>

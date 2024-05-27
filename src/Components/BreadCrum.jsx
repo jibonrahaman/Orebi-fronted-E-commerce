@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux'
 import { AiOutlineRight } from 'react-icons/ai'
 
 export default function BreadCrum() {
-    const pagename = useSelector((state => state.BreakCum.previousname))
+    const pagename = useSelector((state => state.BreakCum.previousname));
+    console.log(pagename);
   const brod = (window.location.pathname.replace("/", ""))
   
   return (
